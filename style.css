@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    ;
+    background-color: #eeeeee;
+}
+
+header {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+main {
+    max-width: 100vw;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    
+
+}
+
+header {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+
+
+header p {
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #074b5f;
+}
+
+
+
+.insert {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    width: 90%;
+
+}
+
+.ideal {
+    background-color: #074b5f;
+}
+
+input,
+button {
+    height: 50px;
+    width: 250px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    box-shadow: 0px 0px 5px 0px #689fb0;
+    border: none;
+    background-color: #689fb0;
+    color: white;
+
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+}
+
+button {
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+button:active {
+    opacity: 0.6;
+}
+
+.processed {
+    width: 100%;
+    display: flex;
+    margin-top: 90px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.processed div p {
+    text-align: start;
+    line-height: 30px;
+
+}
+
+h4 {
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    background-color: #689fb0;
+    height: 30px;
+    width: 230px;
+    padding: 8px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.data-projection {
+    display: flex;
+    gap: 10px;
+    width: 230px;
+    height: 30px;
+    font-weight: bold;
+
+}
+
+::placeholder {
+    color: white;
+    opacity: 0.6;
+}
+
+button {
+    background-color: darkorange;
+}
+
+@media screen and (max-width: 450px) {
+    header p {
+        font-size: 40px;
+    }
+    .insert, .processed{
+        width: 100%;
+        margin: 0px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .processed {
+        margin-top: 50px;
+    }
+
+    h4 {
+        margin-top: 30px;
+    }
+    
+
+    
+}

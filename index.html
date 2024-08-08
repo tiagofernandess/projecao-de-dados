@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Projeção</title>
+</head>
+
+<body>
+    <header>
+        <p>Projeção</p>
+    </header>
+    <main>
+        <section class="insert">
+
+            <div>
+                <input id="inputProhibited" type="number" placeholder="Apurado (R$)" required >
+            </div>
+
+            <div>
+                <input id="input-Luck" type="number" placeholder="Sorte (R$)" required>
+            </div>
+
+            <div>
+                <input id="input-commission" type="number" placeholder="Comissão (R$)" required>
+            </div>
+
+            <div>
+                <input id="input-expenses" type="number" placeholder="Despesas (R$)" required>
+            </div>
+
+        </section>
+        <button id="processing">Processar</button>
+        <section class="processed">
+            <div>
+                <h4> Projeção Real 3 Meses</h4>
+                <div class="data-projection">
+                    <p>Apurado:</p>
+                    <p id="calculated-monthly-three-months"></p>
+                </div>
+                <div class="data-projection">
+                    <p>Sorte:</p>
+                    <p id="monthly-luck-three-months"></p>
+                </div>
+                <div class="data-projection">
+                    <p>Comissão:</p>
+                    <p id="royal-commission-three-months"></p>
+                </div>
+                <div class="data-projection">
+                    <p>Despesas:</p>
+                    <p id="real-expenses-three-months"></p>
+                </div>
+                <div class="data-projection">
+                    <p>Total:</p>
+                    <p id="actual-total-three-months"></p>
+                </div>
+            </div>
+
+
+            <div>
+                <h4 class="ideal"> Projeção Ideal 3 Meses</h4>
+                <div class="data-projection">
+                    <p>Apurado:</p>
+                    <p></p>
+                </div>
+                <div class="data-projection">
+                    <p>Sorte:</p>
+                    <p></p>
+                </div>
+                <div class="data-projection">
+                    <p>Comissão:</p>
+                    <p></p>
+                </div>
+                <div class="data-projection">
+                    <p>Despesas:</p>
+                    <p></p>
+                </div>
+
+                <div class="data-projection">
+                    <p>Total:</p>
+                    <p></p>
+                </div>
+            </div>
+            <div>
+                <h4> Projeção Real Mensal</h4>
+                <div class="data-projection">
+                    <p>Apurado:</p>
+                    <p></p>
+                </div>
+                <div class="data-projection">
+                    <p>Sorte:</p>
+                    <p></p>
+                </div>
+                <div class="data-projection">
+                    <p>Comissão:</p>
+                    <p></p>
+                </div>
+                <div class="data-projection">
+                    <p>Despesas:</p>
+                    <p></p>
+                </div>
+
+                <div class="data-projection">
+                    <p>Total:</p>
+                    <p></p>
+                </div>
+
+            </div>
+
+            <div>
+                <h4 class="ideal"> Projeção Ideal Mensal</h4>
+                <div class="data-projection">
+                    <p>Apurado:</p>
+                    <p></p>
+                </div>
+                <div class="data-projection">
+                    <p>Sorte:</p>
+                    <p></p>
+                </div>
+                <div class="data-projection">
+                    <p>Comissão:</p>
+                    <p></p>
+                </div>
+                <div class="data-projection">
+                    <p>Despesas:</p>
+                    <p></p>
+                </div>
+
+                <div class="data-projection">
+                    <p>Total:</p>
+                    <p></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
