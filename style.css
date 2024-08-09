@@ -100,14 +100,34 @@ button:active {
     margin-top: 90px;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .processed div p {
     text-align: start;
     line-height: 30px;
+    
 
 }
+
+.data-projection #calculated-monthly-three-months, #royal-commission-three-months , #actual-total-three-months{
+    height: 30px;
+    width: 230px;
+    background-color: rgb(196, 192, 192);
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+}
+
+#monthly-luck-three-months, #real-expenses-three-months {
+    height: 30px;
+    width: 230px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+}
+
+
 
 h4 {
     text-transform: uppercase;
@@ -120,6 +140,10 @@ h4 {
     color: white;
     border-radius: 5px;
     font-size: 16px;
+}
+
+.number-red {
+    color: red;
 }
 
 .data-projection {
