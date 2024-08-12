@@ -25,7 +25,7 @@ function process() {
     total.textContent = `Total (R$): ${totalValue.toFixed(2)}`;
 
     if (totalValue < 0) {
-        style.color = red;
+        totalValue.style.color = red;
     }
 }
 

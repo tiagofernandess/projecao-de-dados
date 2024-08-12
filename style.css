@@ -146,6 +146,25 @@ h4 {
     color: red;
 }
 
+
+.percentage {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 10px;
+    height: 30px;
+    padding: 5px;
+    background-color: rgb(196, 192, 192);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+
+}
+
+
+.ideal-percentage {
+    background-color: white;
+}
+
 .data-projection {
     display: flex;
     gap: 10px;
