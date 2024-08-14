@@ -208,8 +208,11 @@ button {
     .data-projection {
         display: flex;
         width: 270px;
-        height: 30px;
+        height: 40px;
+    }
 
+    #monthly-luck-three-months {
+        
     }
     
 

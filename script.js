@@ -148,7 +148,6 @@ function process() {
     percentageExpensesThreeMonths.textContent = (calculatingPercentageThreeExpenses * 100).toFixed(1) + '%';
 
     const finalTotalOfThreeMonthsP = totalValue / prohibitedValue
-   
     totalPercentageThreeMonths.textContent = (finalTotalOfThreeMonthsP * 100).toFixed(1) + '%';
 
 }
