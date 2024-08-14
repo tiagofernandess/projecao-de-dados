@@ -103,13 +103,13 @@ button:active {
 }
 
 .processed div p {
-    text-align: start;
+    text-align: center;
     line-height: 30px;
     
 
 }
 
-.data-projection #calculated-monthly-three-months, #royal-commission-three-months , #actual-total-three-months{
+.data-projection #calculated-monthly-three-months, #royal-commission-three-months , #actual-total-three-months, .listone{
     height: 30px;
     width: 230px;
     background-color: rgb(196, 192, 192);
@@ -118,7 +118,7 @@ button:active {
     display: block;
 }
 
-#monthly-luck-three-months, #real-expenses-three-months {
+#monthly-luck-three-months, #real-expenses-three-months, .listtwo {
     height: 30px;
     width: 230px;
     background-color: white;
