@@ -33,6 +33,17 @@ const idealMonthlyCommission = document.querySelector("#ideal-monthly-commission
 const idealMonthlyExpenses = document.querySelector("#ideal-monthly-expenses")
 const totalMonthlyIdeal = document.querySelector("#total-monthly-ideal")
 
+//Mapeando porcentagem
+const hundredToll = document.querySelector("#hundred-toll")
+const hundredTollTwo = document.querySelector("#hundred-toll-two")
+const hundredTollTree = document.querySelector("#hundred-toll-tree")
+const hundredTollFour = document.querySelector("#hundred-toll-four")
+
+const luckyPercentageThreeMonths = document.querySelector("#lucky-percentage-three-months")
+const commissionPercentageThreeMonths = document.querySelector("#commission-percentage-three-months")
+const percentageExpensesThreeMonths = document.querySelector("#percentage-expenses-threemonths")
+const totalPercentageThreeMonths = document.querySelector("#total-percentage-three-months")
+
 
 
 
@@ -119,7 +130,29 @@ function process() {
     const totalMonthlyIdealValue = monthlyIdealCalculatedForTree - monthlyIdealLuckForTree - idealMonthlyCommissionForTree - idealMonthlyExpensesForTree;
 
     totalMonthlyIdeal.textContent = "Total: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(totalMonthlyIdealValue);
+
+    hundredToll.textContent = "100%"
+    hundredTollTwo.textContent = "100%"
+    hundredTollTree.textContent = "100%"
+    hundredTollFour.textContent = "100%"
+
+
+    //Formatando numeros em porcentagem 3 MESES
+    const calculatingPercentageThreeMonths = luckValue / prohibitedValue
+    luckyPercentageThreeMonths.textContent = (calculatingPercentageThreeMonths * 100).toFixed(1) + '%';
+
+    const calculatingPercentageThreeComission = commissionValue / prohibitedValue
+    commissionPercentageThreeMonths.textContent = (calculatingPercentageThreeComission * 100).toFixed(1) + '%';
+
+    const calculatingPercentageThreeExpenses = expensesValue / prohibitedValue
+    percentageExpensesThreeMonths.textContent = (calculatingPercentageThreeExpenses * 100).toFixed(1) + '%';
+
+    const finalTotalOfThreeMonthsP = totalValue / prohibitedValue
+   
+    totalPercentageThreeMonths.textContent = (finalTotalOfThreeMonthsP * 100).toFixed(1) + '%';
+
 }
+
 
 
 button.addEventListener("click", process);
