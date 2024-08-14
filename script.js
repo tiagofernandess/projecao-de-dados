@@ -26,6 +26,13 @@ const receiveMonthlyCommission = document.querySelector("#monthly-real-commissio
 const actualMonthlyExpenses = document.querySelector("#actual-monthly-expenses")
 const totalRealMonthlyValue = document.querySelector("#total-real-monthly-value")
 
+//Mapeamento Mensal Ideal
+const monthlyIdealCalculated = document.querySelector("#monthly-ideal-calculated")
+const monthlyIdealLuck = document.querySelector("#monthly-ideal-luck")
+const idealMonthlyCommission = document.querySelector("#ideal-monthly-commission")
+const idealMonthlyExpenses = document.querySelector("#ideal-monthly-expenses")
+const totalMonthlyIdeal = document.querySelector("#total-monthly-ideal")
+
 
 
 
@@ -36,57 +43,82 @@ function process() {
     const commissionValue = parseFloat(commission.value) || 0;
     const expensesValue = parseFloat(expenses.value) || 0;
 
-    inputProhibited.textContent = `Apurado (R$): ${prohibitedValue.toFixed(2)}`;
-    inputLuck.textContent = `Sorte (R$): ${luckValue.toFixed(2)}`;
-    inputCommission.textContent = `Comissão (R$): ${commissionValue.toFixed(2)}`;
-    inputExpendes.textContent = `Despesas (R$): ${expensesValue.toFixed(2)}`;
+    inputProhibited.textContent = "Apurado: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(prohibitedValue);
+
+    inputLuck.textContent = "Sorte: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(luckValue);
+
+    inputCommission.textContent = "Comissão: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(commissionValue);
+
+    inputExpendes.textContent = "Despesas: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(expensesValue);
 
     const totalValue = prohibitedValue - expensesValue - commissionValue - luckValue;
-    total.textContent = `Total (R$): ${totalValue.toFixed(2)}`;
+
+    total.textContent = "Total: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(totalValue);
 
     //Valores Fixos
     const averageLuck = 0.72
     const averageExpenses = 0.9
     const averageCommission = 0.8
     const monthlyProjection = 3
-   
+
 
     //Processo Projeção Ideal 3 meses
     const luckConvertedThreeMonths = prohibitedValue * averageLuck
     const comissionConvertedThreeMonths = commissionValue * averageCommission
     const expensesConvertedThreeMonths = expensesValue * averageExpenses
 
-    luckyThreeMonths.textContent = `Sorte (R$): ${luckConvertedThreeMonths.toFixed(2)}`;
-    idealCommissionthreeMonths.textContent = `Comissão (R$): ${comissionConvertedThreeMonths.toFixed(2)}`;
-    idealExpensesThreeMonths.textContent = `Despesas (R$): ${expensesConvertedThreeMonths.toFixed(2)}`;
-    determinedIdealThreeMonths.textContent = `Apurado (R$): ${prohibitedValue.toFixed(2)}`;
+    determinedIdealThreeMonths.textContent = "Apurado: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(prohibitedValue);
+
+    luckyThreeMonths.textContent = "Sorte: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(luckConvertedThreeMonths);
+
+    idealCommissionthreeMonths.textContent = "Comissão: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(comissionConvertedThreeMonths);
+
+    idealExpensesThreeMonths.textContent = "Despesas: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(expensesConvertedThreeMonths);
 
 
     const determinedIdealValue = prohibitedValue;
     const totalValueTree = determinedIdealValue - comissionConvertedThreeMonths - expensesConvertedThreeMonths - luckConvertedThreeMonths;
 
-    totalThree.textContent = `Total (R$): ${totalValueTree.toFixed(2)}`;
+    totalThree.textContent = "Total: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(totalValueTree);
 
 
-     //Processo Projeção Real Mensal
+    //Processo Projeção Real Mensal
     const countedDividedbyThree = prohibitedValue / monthlyProjection
     const luckDividedByThree = luckValue / monthlyProjection
     const commissionDividedByThree = commissionValue / monthlyProjection
     const expensesDividedByThree = expensesValue / monthlyProjection
 
-    currentMonthlyCalculation.textContent = `Apurado (R$): ${countedDividedbyThree.toFixed(2)}`;
-    receiveMonthlyluck.textContent = `Sorte (R$): ${luckDividedByThree.toFixed(2)}`;
-    receiveMonthlyCommission.textContent = `Comissão (R$): ${commissionDividedByThree.toFixed(2)}`;
-    actualMonthlyExpenses.textContent = `Despesas (R$): ${expensesDividedByThree.toFixed(2)}`;
+
+    currentMonthlyCalculation.textContent = "Apurado: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(countedDividedbyThree);
+
+    receiveMonthlyluck.textContent = "Sorte: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(luckDividedByThree);
+
+    receiveMonthlyCommission.textContent = "Comissão: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(commissionDividedByThree);
+
+    actualMonthlyExpenses.textContent = "Despesas: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(expensesDividedByThree);
 
     const realMonthlyMalculation = countedDividedbyThree
     const totalRealValue = realMonthlyMalculation - luckDividedByThree - commissionDividedByThree - expensesDividedByThree
 
-    totalRealMonthlyValue.textContent = `Total (R$): ${totalRealValue.toFixed(2)}`;
+    totalRealMonthlyValue.textContent = "Total: " + new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' }).format(totalRealValue);
 
-    
+    //Processo Projeção Ideal Mensal
+    const monthlyIdealCalculatedForTree = prohibitedValue / monthlyProjection
+    const monthlyIdealLuckForTree = luckConvertedThreeMonths / monthlyProjection
+    const idealMonthlyCommissionForTree = comissionConvertedThreeMonths / monthlyProjection
+    const idealMonthlyExpensesForTree = expensesConvertedThreeMonths / monthlyProjection
 
-    
+    monthlyIdealCalculated.textContent = "Apurado: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(monthlyIdealCalculatedForTree);
+
+    monthlyIdealLuck.textContent = "Sorte: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(monthlyIdealLuckForTree);
+
+    idealMonthlyCommission.textContent = "Comissão: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(idealMonthlyCommissionForTree);
+
+    idealMonthlyExpenses.textContent = "Despesas: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(idealMonthlyExpensesForTree);
+
+    const totalMonthlyIdealValue = monthlyIdealCalculatedForTree - monthlyIdealLuckForTree - idealMonthlyCommissionForTree - idealMonthlyExpensesForTree;
+
+    totalMonthlyIdeal.textContent = "Total: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(totalMonthlyIdealValue);
 }
 
 
