@@ -1,6 +1,6 @@
 //Mapeamento Entradas de Dados Principal
 const button = document.querySelector("#processing");
-const select = document.querySelector("#changed-select")
+const select = document.querySelector("#functionSelect")
 const prohibited = document.querySelector("#inputProhibited");
 const luck = document.querySelector("#input-Luck");
 const commission = document.querySelector("#input-commission");
@@ -66,7 +66,7 @@ const totalMonthlyIdealPercentage = document.querySelector("#total-monthly-ideal
 
 
 
-function quarterlyProcess() {
+function processQuarterly() {
     //Processo Projeção Real 3 meses
     const prohibitedValue = parseFloat(prohibited.value) || 0;
     const luckValue = parseFloat(luck.value) || 0;
@@ -150,13 +150,15 @@ function quarterlyProcess() {
 
     totalMonthlyIdeal.textContent = "Total: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(totalMonthlyIdealValue);
 
+    
+    //Porcentagens
+
     hundredToll.textContent = "100%"
     hundredTollTwo.textContent = "100%"
     hundredTollTree.textContent = "100%"
     hundredTollFour.textContent = "100%"
 
-
-    //Formatando numeros em porcentagem 3 MESES real
+     //Formatando numeros em porcentagem 3 MESES real
     const calculatingPercentageThreeMonths = luckValue / prohibitedValue
     luckyPercentageThreeMonths.textContent = (calculatingPercentageThreeMonths * 100).toFixed(1) + '%';
 
@@ -185,7 +187,7 @@ function quarterlyProcess() {
 
 
     //Formatando numeros em porcentagem mensal real
-    const realMonthlyLuckyPercentageP = luckDividedByThree / monthlyIdealCalculatedForTree
+    const realMonthlyLuckyPercentageP = luckDividedByThree / countedDividedbyThree
     realMonthlyLuckyPercentage.textContent = (realMonthlyLuckyPercentageP * 100).toFixed(1) + '%';
 
     const realMonthlyCommissionPercentageP = commissionDividedByThree / monthlyIdealCalculatedForTree
@@ -212,27 +214,28 @@ function quarterlyProcess() {
     totalMonthlyIdealPercentage.textContent = (totalMonthlyIdealPercentageP * 100).toFixed(1) + '%';
 }
 
-function processmonthly() {
+function processMonthly() {
     //Processo Projeção Real 3 meses
     const prohibitedValue = parseFloat(prohibited.value) || 0;
     const luckValue = parseFloat(luck.value) || 0;
     const commissionValue = parseFloat(commission.value) || 0;
     const expensesValue = parseFloat(expenses.value) || 0;
 
+    const valuesForThreeMonths = 3
 
-    const processMonthlyxThree = 3
+    const inputThreeMonthsX = prohibitedValue * valuesForThreeMonths
+    inputProhibited.textContent = "Apurado: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(inputThreeMonthsX);
 
-    const inputIdealThreeMonths = inputProhibited * processMonthlyxThree
-    inputProhibited.textContent = "Apurado: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(inputIdealThreeMonths);
+    const inputThreeMonthsLuckX = luckValue * valuesForThreeMonths
+    inputLuck.textContent = "Sorte: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(inputThreeMonthsLuckX);
 
-    const quarterlyIdealLuck = inputLuck * processMonthlyxThree
-    inputLuck.textContent = "Sorte: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(quarterlyIdealLuck);
+    const inputThreeMonthsCommissionX = commissionValue * valuesForThreeMonths
+    inputCommission.textContent = "Comissão: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(inputThreeMonthsCommissionX);
 
-    inputCommission.textContent = "Comissão: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(commissionValue);
+    const inputThreeMonthsExpensesX = expensesValue * valuesForThreeMonths
+    inputExpendes.textContent = "Despesas: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(inputThreeMonthsExpensesX);
 
-    inputExpendes.textContent = "Despesas: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(expensesValue);
-
-    const totalValue = prohibitedValue - expensesValue - commissionValue - luckValue;
+    const totalValue = inputThreeMonthsX - inputThreeMonthsLuckX - inputThreeMonthsCommissionX - inputThreeMonthsExpensesX;
 
     total.textContent = "Total: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(totalValue);
 
@@ -244,11 +247,13 @@ function processmonthly() {
 
 
     //Processo Projeção Ideal 3 meses
-    const luckConvertedThreeMonths = prohibitedValue * averageLuck
-    const comissionConvertedThreeMonths =  prohibitedValue * averageCommission
-    const expensesConvertedThreeMonths = prohibitedValue * averageExpenses
+    const luckConvertedThreeMonths = inputThreeMonthsX * averageLuck
+    const comissionConvertedThreeMonths =  inputThreeMonthsX * averageCommission
+    const expensesConvertedThreeMonths = inputThreeMonthsX * averageExpenses
 
-    determinedIdealThreeMonths.textContent = "Apurado: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(prohibitedValue);
+
+    determinedIdealThreeMonths.textContent = "Apurado: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(inputThreeMonthsX);
+
 
     luckyThreeMonths.textContent = "Sorte: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(luckConvertedThreeMonths);
 
@@ -257,17 +262,17 @@ function processmonthly() {
     idealExpensesThreeMonths.textContent = "Despesas: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(expensesConvertedThreeMonths);
 
 
-    const determinedIdealValue = prohibitedValue;
+    const determinedIdealValue = inputThreeMonthsX;
     const totalValueTree = determinedIdealValue - comissionConvertedThreeMonths - expensesConvertedThreeMonths - luckConvertedThreeMonths;
 
     totalThree.textContent = "Total: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(totalValueTree);
 
 
     //Processo Projeção Real Mensal
-    const countedDividedbyThree = prohibitedValue / monthlyProjection
-    const luckDividedByThree = luckValue / monthlyProjection
-    const commissionDividedByThree = commissionValue / monthlyProjection
-    const expensesDividedByThree = expensesValue / monthlyProjection
+    const countedDividedbyThree = prohibitedValue 
+    const luckDividedByThree = luckValue
+    const commissionDividedByThree = commissionValue
+    const expensesDividedByThree = expensesValue
 
 
     currentMonthlyCalculation.textContent = "Apurado: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(countedDividedbyThree);
@@ -284,12 +289,13 @@ function processmonthly() {
     totalRealMonthlyValue.textContent = "Total: " + new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' }).format(totalRealValue);
 
     //Processo Projeção Ideal Mensal
-    const monthlyIdealCalculatedForTree = prohibitedValue / monthlyProjection
-    const monthlyIdealLuckForTree = luckConvertedThreeMonths / monthlyProjection
-    const idealMonthlyCommissionForTree = comissionConvertedThreeMonths / monthlyProjection
-    const idealMonthlyExpensesForTree = expensesConvertedThreeMonths / monthlyProjection
+    
+    const calculatedIdealMonthlyR = countedDividedbyThree
+    const monthlyIdealLuckForTree = calculatedIdealMonthlyR * averageLuck
+    const idealMonthlyCommissionForTree = calculatedIdealMonthlyR * averageCommission
+    const idealMonthlyExpensesForTree = calculatedIdealMonthlyR * averageExpenses
 
-    monthlyIdealCalculated.textContent = "Apurado: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(monthlyIdealCalculatedForTree);
+    monthlyIdealCalculated.textContent = "Apurado: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(calculatedIdealMonthlyR);
 
     monthlyIdealLuck.textContent = "Sorte: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(monthlyIdealLuckForTree);
 
@@ -322,16 +328,16 @@ function processmonthly() {
 
 
     //Formatando numeros em porcentagem 3 MESES ideal
-    const idealPercentageThreeMonthsLuckP = luckConvertedThreeMonths / prohibitedValue
+    const idealPercentageThreeMonthsLuckP = luckConvertedThreeMonths / inputThreeMonthsX
     idealPercentageThreeMonthsLuck.textContent = (idealPercentageThreeMonthsLuckP * 100).toFixed(1) + '%';
 
-    const idealPercentageThreeMonthsCommissionP = comissionConvertedThreeMonths / prohibitedValue
+    const idealPercentageThreeMonthsCommissionP = comissionConvertedThreeMonths / inputThreeMonthsX
     idealPercentageThreeMonthsCommission.textContent = (idealPercentageThreeMonthsCommissionP * 100).toFixed(1) + '%';
 
-    const idealPercentageThreeMonthsExpensesP = expensesConvertedThreeMonths / prohibitedValue
+    const idealPercentageThreeMonthsExpensesP = expensesConvertedThreeMonths / inputThreeMonthsX
     idealPercentageThreeMonthsExpenses.textContent = (idealPercentageThreeMonthsExpensesP * 100).toFixed(1) + '%';
 
-    const idealTotalPercentageThreeMonthsP = totalValueTree / prohibitedValue
+    const idealTotalPercentageThreeMonthsP = totalValueTree / inputThreeMonthsX
     idealTotalPercentageThreeMonths.textContent = (idealTotalPercentageThreeMonthsP * 100).toFixed(1) + '%';
 
 
@@ -363,14 +369,13 @@ function processmonthly() {
     totalMonthlyIdealPercentage.textContent = (totalMonthlyIdealPercentageP * 100).toFixed(1) + '%';
 }
 
-function invertPosition(){
-    
-}
-
-
-
-
-button.addEventListener("click", quarterlyProcess);
-select.addEventListener("change", invertPosition)
+document.querySelector("#processing").addEventListener("click", () => {
+    const period = document.querySelector("#functionSelect").value;
+    if (period === "trimestral") {
+        processQuarterly();
+    } else if (period === "mensal") {
+        processMonthly();
+    }
+});
 
 
