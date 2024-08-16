@@ -86,15 +86,15 @@ function process() {
 
     //Valores Fixos
     const averageLuck = 0.72
-    const averageExpenses = 0.9
-    const averageCommission = 0.8
+    const averageExpenses = 0.09
+    const averageCommission = 0.08
     const monthlyProjection = 3
 
 
     //Processo Projeção Ideal 3 meses
     const luckConvertedThreeMonths = prohibitedValue * averageLuck
-    const comissionConvertedThreeMonths = commissionValue * averageCommission
-    const expensesConvertedThreeMonths = expensesValue * averageExpenses
+    const comissionConvertedThreeMonths =  prohibitedValue * averageCommission
+    const expensesConvertedThreeMonths = prohibitedValue * averageExpenses
 
     determinedIdealThreeMonths.textContent = "Apurado: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(prohibitedValue);
 
