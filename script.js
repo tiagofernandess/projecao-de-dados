@@ -48,6 +48,20 @@ const totalPercentageThreeMonths = document.querySelector("#total-percentage-thr
 const idealPercentageThreeMonthsLuck = document.querySelector("#ideal-percentage-three-months-luck")
 const idealPercentageThreeMonthsCommission = document.querySelector("#ideal-percentage-three-months-commission")
 const idealPercentageThreeMonthsExpenses = document.querySelector("#ideal-percentage-three-months-expenses")
+const idealTotalPercentageThreeMonths = document.querySelector("#ideal-total-percentage-three-months")
+
+//Mapeando porcentagem mensal real
+const realMonthlyLuckyPercentage = document.querySelector("#real-monthly-lucky-percentage")
+const realMonthlyCommissionPercentage = document.querySelector("#real-monthly-commission-percentage")
+const percentageActualMonthlyExpenses = document.querySelector("#percentage-actual-monthly-expenses")
+const totalMonthlyRealPercentage = document.querySelector("#total-monthly-real-percentage")
+
+//Mapeando porcentagem mensal IDEAL
+const luckyMonthlyIdealPercentage = document.querySelector("#lucky-monthly-ideal-percentage")
+const idealMonthlyCommissionPercentage = document.querySelector("#ideal-monthly-commission-percentage")
+const idealPercentageMonthlyExpenses = document.querySelector("#ideal-percentage-monthly-expenses")
+const totalMonthlyIdealPercentage = document.querySelector("#total-monthly-ideal-percentage")
+
 
 
 
@@ -165,6 +179,36 @@ function process() {
     const idealPercentageThreeMonthsExpensesP = expensesConvertedThreeMonths / prohibitedValue
     idealPercentageThreeMonthsExpenses.textContent = (idealPercentageThreeMonthsExpensesP * 100).toFixed(1) + '%';
 
+    const idealTotalPercentageThreeMonthsP = totalValueTree / prohibitedValue
+    idealTotalPercentageThreeMonths.textContent = (idealTotalPercentageThreeMonthsP * 100).toFixed(1) + '%';
+
+
+    //Formatando numeros em porcentagem mensal real
+    const realMonthlyLuckyPercentageP = luckDividedByThree / monthlyIdealCalculatedForTree
+    realMonthlyLuckyPercentage.textContent = (realMonthlyLuckyPercentageP * 100).toFixed(1) + '%';
+
+    const realMonthlyCommissionPercentageP = commissionDividedByThree / monthlyIdealCalculatedForTree
+    realMonthlyCommissionPercentage.textContent = (realMonthlyCommissionPercentageP * 100).toFixed(1) + '%';
+
+    const percentageActualMonthlyExpensesP = expensesDividedByThree / monthlyIdealCalculatedForTree
+    percentageActualMonthlyExpenses.textContent = (percentageActualMonthlyExpensesP * 100).toFixed(1) + '%';
+
+    const totalMonthlyRealPercentageP = totalRealValue / monthlyIdealCalculatedForTree
+    totalMonthlyRealPercentage.textContent = (totalMonthlyRealPercentageP * 100).toFixed(1) + '%';
+
+
+    //Formatando numeros em porcentagem mensal ideal
+    const luckyMonthlyIdealPercentageP = monthlyIdealLuckForTree / monthlyIdealCalculatedForTree
+    luckyMonthlyIdealPercentage.textContent = (luckyMonthlyIdealPercentageP * 100).toFixed(1) + '%';
+   
+    const idealMonthlyCommissionPercentageP = idealMonthlyCommissionForTree / monthlyIdealCalculatedForTree
+    idealMonthlyCommissionPercentage.textContent = (idealMonthlyCommissionPercentageP * 100).toFixed(1) + '%';
+
+    const idealPercentageMonthlyExpensesP = idealMonthlyExpensesForTree / monthlyIdealCalculatedForTree
+    idealPercentageMonthlyExpenses.textContent = (idealPercentageMonthlyExpensesP * 100).toFixed(1) + '%';
+
+    const totalMonthlyIdealPercentageP = totalMonthlyIdealValue / monthlyIdealCalculatedForTree
+    totalMonthlyIdealPercentage.textContent = (totalMonthlyIdealPercentageP * 100).toFixed(1) + '%';
 }
 
 
