@@ -33,7 +33,7 @@ const idealMonthlyCommission = document.querySelector("#ideal-monthly-commission
 const idealMonthlyExpenses = document.querySelector("#ideal-monthly-expenses")
 const totalMonthlyIdeal = document.querySelector("#total-monthly-ideal")
 
-//Mapeando porcentagem
+//Mapeando porcentagem 3 meses real
 const hundredToll = document.querySelector("#hundred-toll")
 const hundredTollTwo = document.querySelector("#hundred-toll-two")
 const hundredTollTree = document.querySelector("#hundred-toll-tree")
@@ -44,6 +44,10 @@ const commissionPercentageThreeMonths = document.querySelector("#commission-perc
 const percentageExpensesThreeMonths = document.querySelector("#percentage-expenses-threemonths")
 const totalPercentageThreeMonths = document.querySelector("#total-percentage-three-months")
 
+//Mapeando porcentagem 3 meses ideal
+const idealPercentageThreeMonthsLuck = document.querySelector("#ideal-percentage-three-months-luck")
+const idealPercentageThreeMonthsCommission = document.querySelector("#ideal-percentage-three-months-commission")
+const idealPercentageThreeMonthsExpenses = document.querySelector("#ideal-percentage-three-months-expenses")
 
 
 
@@ -137,7 +141,7 @@ function process() {
     hundredTollFour.textContent = "100%"
 
 
-    //Formatando numeros em porcentagem 3 MESES
+    //Formatando numeros em porcentagem 3 MESES real
     const calculatingPercentageThreeMonths = luckValue / prohibitedValue
     luckyPercentageThreeMonths.textContent = (calculatingPercentageThreeMonths * 100).toFixed(1) + '%';
 
@@ -149,6 +153,17 @@ function process() {
 
     const finalTotalOfThreeMonthsP = totalValue / prohibitedValue
     totalPercentageThreeMonths.textContent = (finalTotalOfThreeMonthsP * 100).toFixed(1) + '%';
+
+
+    //Formatando numeros em porcentagem 3 MESES ideal
+    const idealPercentageThreeMonthsLuckP = luckConvertedThreeMonths / prohibitedValue
+    idealPercentageThreeMonthsLuck.textContent = (idealPercentageThreeMonthsLuckP * 100).toFixed(1) + '%';
+
+    const idealPercentageThreeMonthsCommissionP = comissionConvertedThreeMonths / prohibitedValue
+    idealPercentageThreeMonthsCommission.textContent = (idealPercentageThreeMonthsCommissionP * 100).toFixed(1) + '%';
+
+    const idealPercentageThreeMonthsExpensesP = expensesConvertedThreeMonths / prohibitedValue
+    idealPercentageThreeMonthsExpenses.textContent = (idealPercentageThreeMonthsExpensesP * 100).toFixed(1) + '%';
 
 }
 
