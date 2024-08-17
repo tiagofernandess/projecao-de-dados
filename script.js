@@ -303,7 +303,7 @@ function processMonthly() {
 
     idealMonthlyExpenses.textContent = "Despesas: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(idealMonthlyExpensesForTree);
 
-    const totalMonthlyIdealValue = monthlyIdealCalculatedForTree - monthlyIdealLuckForTree - idealMonthlyCommissionForTree - idealMonthlyExpensesForTree;
+    const totalMonthlyIdealValue = countedDividedbyThree - monthlyIdealLuckForTree - idealMonthlyCommissionForTree - idealMonthlyExpensesForTree;
 
     totalMonthlyIdeal.textContent = "Total: " + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(totalMonthlyIdealValue);
 
@@ -342,30 +342,30 @@ function processMonthly() {
 
 
     //Formatando numeros em porcentagem mensal real
-    const realMonthlyLuckyPercentageP = luckDividedByThree / monthlyIdealCalculatedForTree
+    const realMonthlyLuckyPercentageP = luckDividedByThree / countedDividedbyThree
     realMonthlyLuckyPercentage.textContent = (realMonthlyLuckyPercentageP * 100).toFixed(1) + '%';
 
-    const realMonthlyCommissionPercentageP = commissionDividedByThree / monthlyIdealCalculatedForTree
+    const realMonthlyCommissionPercentageP = commissionDividedByThree / countedDividedbyThree
     realMonthlyCommissionPercentage.textContent = (realMonthlyCommissionPercentageP * 100).toFixed(1) + '%';
 
-    const percentageActualMonthlyExpensesP = expensesDividedByThree / monthlyIdealCalculatedForTree
+    const percentageActualMonthlyExpensesP = expensesDividedByThree / countedDividedbyThree
     percentageActualMonthlyExpenses.textContent = (percentageActualMonthlyExpensesP * 100).toFixed(1) + '%';
 
-    const totalMonthlyRealPercentageP = totalRealValue / monthlyIdealCalculatedForTree
+    const totalMonthlyRealPercentageP = totalRealValue / countedDividedbyThree
     totalMonthlyRealPercentage.textContent = (totalMonthlyRealPercentageP * 100).toFixed(1) + '%';
 
 
     //Formatando numeros em porcentagem mensal ideal
-    const luckyMonthlyIdealPercentageP = monthlyIdealLuckForTree / monthlyIdealCalculatedForTree
+    const luckyMonthlyIdealPercentageP = monthlyIdealLuckForTree / countedDividedbyThree
     luckyMonthlyIdealPercentage.textContent = (luckyMonthlyIdealPercentageP * 100).toFixed(1) + '%';
    
-    const idealMonthlyCommissionPercentageP = idealMonthlyCommissionForTree / monthlyIdealCalculatedForTree
+    const idealMonthlyCommissionPercentageP = idealMonthlyCommissionForTree / countedDividedbyThree
     idealMonthlyCommissionPercentage.textContent = (idealMonthlyCommissionPercentageP * 100).toFixed(1) + '%';
 
-    const idealPercentageMonthlyExpensesP = idealMonthlyExpensesForTree / monthlyIdealCalculatedForTree
+    const idealPercentageMonthlyExpensesP = idealMonthlyExpensesForTree / countedDividedbyThree
     idealPercentageMonthlyExpenses.textContent = (idealPercentageMonthlyExpensesP * 100).toFixed(1) + '%';
 
-    const totalMonthlyIdealPercentageP = totalMonthlyIdealValue / monthlyIdealCalculatedForTree
+    const totalMonthlyIdealPercentageP = totalMonthlyIdealValue / countedDividedbyThree
     totalMonthlyIdealPercentage.textContent = (totalMonthlyIdealPercentageP * 100).toFixed(1) + '%';
 }
 
